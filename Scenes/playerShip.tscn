@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://m11wmhshgt5k"]
+
+[ext_resource type="Texture2D" uid="uid://baci5h1rhpyab" path="res://Art/Avatar/artShip.png" id="1_a6dia"]
+[ext_resource type="Script" uid="uid://v7ltn6s0ugry" path="res://Script/scripeAvatarShip.gd" id="1_oxjg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxjg5"]
+size = Vector2(217, 17)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_oxjg5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(43.5, -37)
+scale = Vector2(1.305, 1)
+texture = ExtResource("1_a6dia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28.5, -6.5)
+shape = SubResource("RectangleShape2D_oxjg5")
+
+[node name="WeaponSlots" type="Node" parent="."]
+
+[node name="WeaponSlot1" type="Marker2D" parent="WeaponSlots"]
+position = Vector2(-68, -20)
+
+[node name="WeaponSlot2" type="Marker2D" parent="WeaponSlots"]
+
+[node name="WeaponSlot3" type="Marker2D" parent="WeaponSlots"]
+
+[node name="EquipmentSlots" type="Node" parent="."]
+
+[node name="DefenseSlot" type="Node" parent="EquipmentSlots"]
+
+[node name="EngineSlot" type="Node" parent="EquipmentSlots"]
+
+[node name="SpecialSlot" type="Node" parent="EquipmentSlots"]

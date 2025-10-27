@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://chq4qwawm7168"]
+
+[ext_resource type="Script" uid="uid://d1spf6y2k2h7v" path="res://Script/gameover_canvas_layer.gd" id="1_ibdgo"]
+[ext_resource type="Texture2D" uid="uid://d3kei8b86hu6g" path="res://Art/UI/iconExperience.png" id="2_d3h2l"]
+[ext_resource type="Texture2D" uid="uid://b2nhp01dyikth" path="res://Art/UI/iconCredits.png" id="3_d7q36"]
+
+[node name="GameOverUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ibdgo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.078431375)
+
+[node name="Panel" type="Panel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 390.0
+offset_right = 1140.0
+offset_bottom = 690.0
+
+[node name="DefeatContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 465.0
+offset_bottom = 240.0
+theme_override_constants/separation = 8
+
+[node name="DefeatLabel" type="Label" parent="ColorRect/Panel/DefeatContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ColorRect/Panel/DefeatContainer"]
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 1
+
+[node name="RetryButton" type="Button" parent="ColorRect/Panel/DefeatContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="BackButton" type="Button" parent="ColorRect/Panel/DefeatContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="VictoryContainer" type="VBoxContainer" parent="ColorRect/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 40.0
+offset_right = 310.0
+offset_bottom = 240.0
+theme_override_constants/separation = 8
+
+[node name="VictoryLabel" type="Label" parent="ColorRect/Panel/VictoryContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Conglaturation"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ColorRect/Panel/VictoryContainer"]
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 1
+
+[node name="ExpBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/VictoryContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Panel/VictoryContainer/ExpBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_d3h2l")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ExperienceLabel" type="Label" parent="ColorRect/Panel/VictoryContainer/ExpBoxContainer"]
+layout_mode = 2
+text = "Exp"
+horizontal_alignment = 1
+
+[node name="CreditsBoxContainer" type="HBoxContainer" parent="ColorRect/Panel/VictoryContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/Panel/VictoryContainer/CreditsBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_d7q36")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CreditsLabel" type="Label" parent="ColorRect/Panel/VictoryContainer/CreditsBoxContainer"]
+layout_mode = 2
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="ColorRect/Panel/VictoryContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="ColorRect/Panel/DefeatContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/DefeatContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ColorRect/Panel/VictoryContainer/BackButton" to="." method="_on_back_button_pressed"]
